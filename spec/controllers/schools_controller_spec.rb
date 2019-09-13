@@ -3,22 +3,22 @@ require 'rails_helper'
 RSpec.describe SchoolsController, type: :controller do
 
   let(:valid_attributes) {
-    { 
-      name: 'Crush', 
-      address: '100 west', 
+    {
+      name: 'Crush',
+      address: '100 west',
       principal: 'bob',
       capacity: 100,
-      private_school: true 
+      private_school: true
     }
   }
 
   let(:invalid_attributes) {
-    { 
-      name: '', 
-      address: '100 west', 
+    {
+      name: '',
+      address: '100 west',
       principal: 'bob',
       capacity: 100,
-      private_school: true 
+      private_school: true
     }
   }
 
@@ -67,7 +67,7 @@ RSpec.describe SchoolsController, type: :controller do
     end
 
      context "with invalid params" do
-      it "does not creates a new school" do
+      it "does not create a new school" do
         expect {
           post :create, params: { school: invalid_attributes }
         }.to change(School, :count).by(0)
@@ -130,5 +130,4 @@ RSpec.describe SchoolsController, type: :controller do
       expect(response).to redirect_to(schools_url)
     end
   end
-
 end
